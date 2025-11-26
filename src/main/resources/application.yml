@@ -8,20 +8,20 @@ spring:
     name: customer-service
   config:
     import:
-      - vault://
+      - vault://secret/customer-service/dev
       - configserver:http://localhost:8888
 
   cloud:
     vault:
       uri: http://localhost:8200
-      token: ${VAULT_TOKEN:your-vault-token}
+      token: hvs.5iAR19YDb4yZrXmp2U69xjjP
       kv:
         enabled: true
         backend: secret
-        default-context: ${spring.application.name}/dev
+        application-name: customer-service
     config:
-      username: ${CONFIG_USERNAME}
-      password: ${CONFIG_PASSWORD}
+      username: ${config_username:${CONFIG_USERNAME:admin}}
+      password: ${config_password:${CONFIG_PASSWORD:admin}}
       fail-fast: true
 
 
