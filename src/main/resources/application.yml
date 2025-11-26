@@ -18,10 +18,10 @@ spring:
       kv:
         enabled: true
         backend: secret
-        default-context: ${spring.application.name}
+        default-context: ${spring.application.name}/dev
     config:
-      username: ${config.server.username}
-      password: ${config.server.password}
+      username: ${CONFIG_USERNAME}
+      password: ${CONFIG_PASSWORD}
       fail-fast: true
 
 
