@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: customer-service
+  cloud:
+    vault:
+      uri: http://localhost:8200
+      token: ${VAULT_TOKEN:your-vault-token}
+      kv:
+        enabled: true
+        backend: secret
+        default-context: ${spring.application.name}
+      fail-fast: false

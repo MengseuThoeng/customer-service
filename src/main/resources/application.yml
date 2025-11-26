@@ -11,8 +11,8 @@ spring:
 
   cloud:
     config:
-      username: admin
-      password: admin
+      username: ${config.server.username}
+      password: ${config.server.password}
       fail-fast: false
 
 
